@@ -5,6 +5,10 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import UserDetails from "../Pages/UserDetails/UserDetails";
+import Colleges from "../Pages/Colleges/Colleges";
+import CollegeDetails from "../Pages/CollegeDetails/CollegeDetails";
+import Admission from "../Pages/Admission/Admission";
+import MyCollege from "../Pages/MyCollege/MyCollege";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +31,22 @@ const router = createBrowserRouter([
       {
         path: "/userDetails",
         element: <UserDetails></UserDetails>,
+      },
+      {
+        path: "/colleges",
+        element: <Colleges></Colleges>,
+      },
+      {
+        path: "/collegeDetails",
+        element: <CollegeDetails></CollegeDetails>,
+      },
+      {
+        path: "/admission",
+        element: <Admission></Admission>,
+      },
+      {
+        path: "/myCollege",
+        element: <MyCollege></MyCollege>,
       },
     ],
   },

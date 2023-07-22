@@ -21,7 +21,7 @@ const NavBar = () => {
       </li>
       <li>
         <NavLink
-          to="/instructors"
+          to="/colleges"
           className={({ isActive }) =>
             isActive ? "text-white font-bold" : "font-bold"
           }
@@ -32,7 +32,7 @@ const NavBar = () => {
 
       <li>
         <NavLink
-          to="/classes"
+          to="/admission"
           className={({ isActive }) =>
             isActive ? "text-white font-bold" : "font-bold"
           }
@@ -42,7 +42,7 @@ const NavBar = () => {
       </li>
       <li>
         <NavLink
-          to="/classes"
+          to="/myCollege"
           className={({ isActive }) =>
             isActive ? "text-white font-bold" : "font-bold"
           }
@@ -50,21 +50,6 @@ const NavBar = () => {
           My College
         </NavLink>
       </li>
-
-      {/* {user ? (
-          <li>
-            <NavLink
-              to="/dashboard"
-              className={({ isActive }) =>
-                isActive ? "text-white font-bold" : "font-bold"
-              }
-            >
-              Dashboard
-            </NavLink>
-          </li>
-        ) : (
-          ""
-        )} */}
     </>
   );
 
@@ -121,14 +106,6 @@ const NavBar = () => {
               <Link onClick={handleLogOut} className="btn btn-sm btn-primary">
                 Logout
               </Link>
-
-              {/* <div className="tooltip" data-tip={user.displayName}>
-                <div className="avatar">
-                  <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 tooltip">
-                    <img src={user?.photoURL} />
-                  </div>
-                </div>
-              </div> */}
             </div>
           ) : (
             <Link to="/login" className="btn btn-sm btn-primary mr-2">

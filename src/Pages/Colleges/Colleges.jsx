@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
-const TopColleges = () => {
+const Colleges = () => {
   const topColleges = {
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ04KnpBbbDRVq7xBhEtV2w5uq2lEbxqp62Cun2QHu1&s",
@@ -11,14 +10,12 @@ const TopColleges = () => {
       spring: "February 2024",
     },
     events: 22,
-
+    rating: 4.5,
     research: 30,
     sports: 30,
   };
-
   return (
     <div className="my-container">
-      <SectionTitle title="Top Colleges"></SectionTitle>
       <div className="card card-compact w-96 bg-base-100 shadow-xl ">
         <figure>
           <img className="w-full h-full" src={topColleges.image} alt="" />
@@ -31,10 +28,10 @@ const TopColleges = () => {
             <span> {topColleges.admission_dates.fall} (Fall)</span>
           </p>
           <div className="flex">
-            <p>Yearly Events : {topColleges.events}</p>
-            <p>Sports : {topColleges.sports} Champion</p>
+            <p>Rating : {topColleges.rating}</p>
+            <p>Number of Research : {topColleges.research} Paper Published</p>
           </div>
-          <p>Research History : {topColleges.research} Paper Published</p>
+
           <div className="card-actions justify-end">
             <Link to="/collegeDetails" className="btn btn-primary">
               Details
@@ -46,4 +43,4 @@ const TopColleges = () => {
   );
 };
 
-export default TopColleges;
+export default Colleges;

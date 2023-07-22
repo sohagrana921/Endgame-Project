@@ -13,10 +13,7 @@ const Footer = () => {
               community during their college years, and to society throughout
               their lives. While academic accomplishment is important, the
               Admissions Committee considers many other factors—strong personal
-              qualities, special talents or excellences of all kinds,
-              perspectives formed by unusual personal circumstances, and the
-              ability to take advantage of available resources and
-              opportunities.
+              qualities, special talents or excellences of all kinds.
             </p>
           </div>
 
@@ -26,16 +23,16 @@ const Footer = () => {
 
               <div className="text-white space-y-3">
                 <p>
-                  <Link>Home</Link>
+                  <Link to="/">Home</Link>
                 </p>
                 <p>
-                  <Link>Colleges</Link>
+                  <Link to="/colleges">Colleges</Link>
                 </p>
                 <p>
-                  <Link>Admission</Link>
+                  <Link to="/admission">Admission</Link>
                 </p>
                 <p>
-                  <Link>My College</Link>
+                  <Link to="/myCollege">My College</Link>
                 </p>
               </div>
             </div>
