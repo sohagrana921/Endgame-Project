@@ -82,7 +82,7 @@ const Footer = () => {
           </div>
         </div>
         <p className="text-center my-4 text-white">
-          <small>Copyright © 2023 LensMasters Academy</small>
+          <small>Copyright © 2023 College Admission</small>
         </p>
       </div>
     </div>

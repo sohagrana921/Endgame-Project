@@ -1,46 +1,68 @@
 import { Link } from "react-router-dom";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import { useEffect, useState } from "react";
 
 const TopColleges = () => {
-  const topColleges = {
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ04KnpBbbDRVq7xBhEtV2w5uq2lEbxqp62Cun2QHu1&s",
-    name: "University of Exampleville",
-    admission_dates: {
-      fall: "September 2023",
-      spring: "February 2024",
-    },
-    events: 22,
-
-    research: 30,
-    sports: 30,
-  };
+  const [colleges, setColleges] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/colleges")
+      .then((res) => res.json())
+      .then((data) => setColleges(data.slice(0, 3)));
+  }, []);
 
   return (
     <div className="my-container">
       <SectionTitle title="Top Colleges"></SectionTitle>
-      <div className="card card-compact w-96 bg-base-100 shadow-xl ">
-        <figure>
-          <img className="w-full h-full" src={topColleges.image} alt="" />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">{topColleges.name}</h2>
+      <div className="md:grid grid-cols-2 gap-8">
+        {colleges.map((college) => (
+          <div
+            key={college.id}
+            className="card card-compact  bg-base-100 shadow-xl"
+          >
+            <figure>
+              <img
+                className="w-full h-[250px]"
+                src={college.college_image}
+                alt=""
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">{college.college_name}</h2>
 
-          <p>
-            Admission Date :
-            <span> {topColleges.admission_dates.fall} (Fall)</span>
-          </p>
-          <div className="flex">
-            <p>Yearly Events : {topColleges.events}</p>
-            <p>Sports : {topColleges.sports} Champion</p>
+              <p>
+                Admission Date :<span> {college.admission_date} (Fall)</span>
+              </p>
+              <div className="flex">
+                <p>Rating : {college.college_rating}</p>
+                <p>
+                  Number of Research : {college.research_count} Paper Published
+                </p>
+              </div>
+              <div className="flex">
+                <p>
+                  Events:
+                  {college.events.map((event, index) => (
+                    <li key={index}>{event}</li>
+                  ))}
+                </p>
+                <p>
+                  Sports:
+                  {college.sports.map((sport, index) => (
+                    <li key={index}>{sport}</li>
+                  ))}
+                </p>
+              </div>
+              <div className="card-actions justify-end">
+                <Link
+                  to={`/collegeDetails/${college._id}`}
+                  className="btn btn-primary"
+                >
+                  Details
+                </Link>
+              </div>
+            </div>
           </div>
-          <p>Research History : {topColleges.research} Paper Published</p>
-          <div className="card-actions justify-end">
-            <Link to="/collegeDetails" className="btn btn-primary">
-              Details
-            </Link>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
