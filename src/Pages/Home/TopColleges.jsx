@@ -38,7 +38,7 @@ const TopColleges = () => {
                   Number of Research : {college.research_count} Paper Published
                 </p>
               </div>
-              <div className="flex">
+              <div className="flex mx-4">
                 <p>
                   Events:
                   {college.events.map((event, index) => (
