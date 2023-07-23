@@ -83,12 +83,7 @@ const NavBar = () => {
           </div>
           <Link to="/">
             <div className="flex items-center gap-2">
-              <img
-                className="h-12 rounded-full"
-                src="../../../../public/logo.png"
-                alt=""
-              />
-              <p className="font-bold">LensMasters</p>
+              <p className="font-bold">College Admission</p>
             </div>
           </Link>
         </div>
@@ -99,7 +94,7 @@ const NavBar = () => {
           {user ? (
             <div className="flex items-center gap-4">
               <div>
-                <Link to="/userDetails" className="text-xl font-bold">
+                <Link to={`/userDetails`} className="text-xl font-bold">
                   {user.displayName}
                 </Link>
               </div>

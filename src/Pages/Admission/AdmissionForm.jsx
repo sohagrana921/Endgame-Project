@@ -80,7 +80,7 @@ const AdmissionForm = () => {
               </label>
               <input
                 type="email"
-                defaultValue={user?.email}
+                value={user?.email}
                 {...register("email", { required: true })}
                 className="input input-bordered w-full "
               />

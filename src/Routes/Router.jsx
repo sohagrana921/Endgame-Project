@@ -11,6 +11,7 @@ import Admission from "../Pages/Admission/Admission";
 import MyCollege from "../Pages/MyCollege/MyCollege";
 import PrivateRoute from "./PrivateRoute";
 import AdmissionForm from "../Pages/Admission/AdmissionForm";
+import AddReview from "../Pages/AddReview/AddReview";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,14 @@ const router = createBrowserRouter([
       {
         path: "/userDetails",
         element: <UserDetails></UserDetails>,
+      },
+      {
+        path: "/addReview",
+        element: (
+          <PrivateRoute>
+            <AddReview></AddReview>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/colleges",

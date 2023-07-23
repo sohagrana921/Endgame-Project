@@ -17,7 +17,7 @@ const ResearchPaper = () => {
           <div key={paper._id} className="card  bg-base-100 shadow-xl">
             <div className="card-body">
               <h2 className="card-title">{paper.title}</h2>
-              <p>{paper.description}</p>
+              <p className="text-justify">{paper.description}</p>
               <div className="card-actions justify-end">
                 <Link to={paper.paper_link} className="btn btn-primary">
                   Paper Link

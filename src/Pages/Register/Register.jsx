@@ -11,6 +11,7 @@ const Register = () => {
   const [err, setErr] = useState("");
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -27,14 +28,43 @@ const Register = () => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "User created successfully.",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      updateUserProfile(data.name).catch((error) => setErr(error.message));
+      // Swal.fire({
+      //   position: "top-end",
+      //   icon: "success",
+      //   title: "User created successfully.",
+      //   showConfirmButton: false,
+      //   timer: 1500,
+      // });
+      updateUserProfile(data.name)
+        .then(() => {
+          const saveUser = {
+            name: data.name,
+            email: data.email,
+            status: "Student",
+          };
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User created successfully.",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/login");
+              }
+            });
+        })
+        .catch((error) => setErr(error.message));
       navigate("/login");
     });
   };
