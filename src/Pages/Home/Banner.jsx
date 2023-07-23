@@ -1,4 +1,16 @@
+import { useEffect, useState } from "react";
+
 const Banner = () => {
+  const [search, setSearch] = useState("");
+  const searchQuery = "ABC University"; // Replace this with your desired search query
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/colleges/search?name=${searchQuery}`)
+      .then((res) => res.json())
+      .then((data) => setSearch(data));
+  }, [searchQuery]); // Add searchQuery as a dependency to useEffect
+
+  console.log(search);
   return (
     <div>
       <div
@@ -14,10 +26,10 @@ const Banner = () => {
             <div className="join">
               <input
                 className="input input-bordered join-item w-[400px]"
-                placeholder="Email"
+                placeholder="Search by college name"
               />
               <button className="btn join-item bg-orange-500 rounded">
-                Subscribe
+                Search
               </button>
             </div>
           </div>

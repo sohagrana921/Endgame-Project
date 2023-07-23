@@ -9,8 +9,27 @@ const AdmissionForm = () => {
   const selectedCollege = useLoaderData();
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
+    const userData = {
+      photo: data.photoURL,
+      subject: data.subject,
+      phoneNumber: data.phoneNumber,
+      college_name: data.college_name,
+      address: data.address,
+    };
+    console.log(userData);
+    fetch(`http://localhost:5000/users/${user?.email}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
     fetch("http://localhost:5000/selectedColleges", {
       method: "POST",
       headers: {
@@ -21,7 +40,6 @@ const AdmissionForm = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          reset();
           Swal.fire({
             position: "top-end",
             icon: "success",
