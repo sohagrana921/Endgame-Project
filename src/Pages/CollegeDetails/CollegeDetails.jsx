@@ -1,5 +1,4 @@
 import { useLoaderData } from "react-router-dom";
-
 const CollegeDetails = () => {
   const college = useLoaderData();
 
@@ -19,7 +18,6 @@ const CollegeDetails = () => {
             <p>
               Admission Date :<span> {college.admission_date} (Fall)</span>
             </p>
-            <p>Rating : {college.college_rating}</p>
             <p>Research Paper : {college.research_count} Paper Published</p>
             <p>
               Events:

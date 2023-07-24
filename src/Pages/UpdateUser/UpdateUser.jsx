@@ -13,7 +13,7 @@ const UpdateUser = () => {
   const { user } = useContext(AuthContext);
   const [userDetails, setUserDetails] = useState("");
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user?.email}`)
+    fetch(`https://endgame-server-amber.vercel.app/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setUserDetails(data));
   }, [user?.email]);
@@ -26,7 +26,7 @@ const UpdateUser = () => {
       address: data.address,
     };
     console.log(updateData);
-    fetch(`http://localhost:5000/users/${id}`, {
+    fetch(`https://endgame-server-amber.vercel.app/users/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

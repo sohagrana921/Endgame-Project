@@ -19,7 +19,7 @@ const AdmissionForm = () => {
       address: data.address,
     };
     console.log(userData);
-    fetch(`http://localhost:5000/users/${user?.email}`, {
+    fetch(`https://endgame-server-amber.vercel.app/users/${user?.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -30,7 +30,7 @@ const AdmissionForm = () => {
       .then((data) => {
         console.log(data);
       });
-    fetch("http://localhost:5000/selectedColleges", {
+    fetch("https://endgame-server-amber.vercel.app/selectedColleges", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -64,7 +64,7 @@ const AdmissionForm = () => {
               </label>
               <input
                 type="text"
-                defaultValue={user?.displayName}
+                value={user?.displayName}
                 {...register("name", { required: true })}
                 className="input input-bordered w-full "
               />

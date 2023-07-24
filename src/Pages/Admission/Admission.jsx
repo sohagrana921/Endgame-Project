@@ -5,7 +5,7 @@ const Admission = () => {
   const [colleges, setColleges] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/colleges")
+    fetch("https://endgame-server-amber.vercel.app/colleges")
       .then((res) => res.json())
       .then((data) => {
         setColleges(data);

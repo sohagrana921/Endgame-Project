@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const ResearchPaper = () => {
   const [papers, setPapers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/researchPapers")
+    fetch("https://endgame-server-amber.vercel.app/researchPapers")
       .then((res) => res.json())
       .then((data) => setPapers(data));
   }, []);
@@ -22,7 +22,10 @@ const ResearchPaper = () => {
               <h2 className="card-title">{paper.title}</h2>
               <p className="text-justify">{paper.description}</p>
               <div className="card-actions justify-end">
-                <Link to="https://www.google.com/" className="btn btn-primary">
+                <Link
+                  to="https://www.researchgate.net/"
+                  className="btn btn-primary"
+                >
                   Paper Link
                 </Link>
               </div>

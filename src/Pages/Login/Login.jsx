@@ -55,7 +55,7 @@ const Login = () => {
                   name="email"
                   placeholder="Email"
                   {...register("email", { required: true })}
-                  className="input"
+                  className="input input-bordered"
                 />
               </div>
               <div className="form-control">

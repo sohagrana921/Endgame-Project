@@ -42,7 +42,7 @@ const Register = () => {
             email: data.email,
             status: "Student",
           };
-          fetch("http://localhost:5000/users", {
+          fetch("https://endgame-server-amber.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -88,7 +88,7 @@ const Register = () => {
                   name="name"
                   placeholder="Name"
                   {...register("name", { required: true })}
-                  className="input"
+                  className="input input-bordered"
                 />
                 {errors.name?.type === "required" && (
                   <p className="text-red-600">Name is required</p>

@@ -20,7 +20,7 @@ const SocialLogin = () => {
         status: "Student",
         photo: loggedInUser.photoURL,
       };
-      fetch("http://localhost:5000/users", {
+      fetch("https://endgame-server-amber.vercel.app/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -28,9 +28,8 @@ const SocialLogin = () => {
         body: JSON.stringify(saveUser),
       })
         .then((res) => res.json())
-        .then(() => {
-          navigate(from, { replace: true });
-        });
+        .then(() => {});
+      navigate(from, { replace: true });
     });
   };
   const handleGithub = () => {

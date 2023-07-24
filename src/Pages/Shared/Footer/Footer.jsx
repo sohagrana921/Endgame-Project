@@ -45,10 +45,10 @@ const Footer = () => {
                   {" "}
                   <FaMobile></FaMobile> +8801953392939
                 </p>
-                <small className="flex items-center text-white gasmall-2">
+                <p className="flex items-center text-white gap-2">
                   {" "}
                   <FaInbox></FaInbox> collegeadmisson.info@gmail.com
-                </small>
+                </p>
               </div>
             </div>
           </div>

@@ -61,7 +61,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/colleges/${params.id}`),
+          fetch(
+            `https://endgame-server-amber.vercel.app/colleges/${params.id}`
+          ),
       },
       {
         path: "/admission",
@@ -83,7 +85,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/colleges/${params.id}`),
+          fetch(
+            `https://endgame-server-amber.vercel.app/colleges/${params.id}`
+          ),
       },
     ],
   },

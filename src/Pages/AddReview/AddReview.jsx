@@ -10,7 +10,7 @@ const AddReview = () => {
   const { user } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/review", {
+    fetch("https://endgame-server-amber.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

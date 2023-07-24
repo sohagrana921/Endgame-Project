@@ -1,19 +1,20 @@
 import { Link } from "react-router-dom";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import { useEffect, useState } from "react";
-
+import Rating from "react-rating";
+import { FaRegStar, FaStar } from "react-icons/fa";
 const TopColleges = () => {
   const [colleges, setColleges] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/colleges")
+    fetch("https://endgame-server-amber.vercel.app/colleges")
       .then((res) => res.json())
       .then((data) => setColleges(data.slice(0, 3)));
   }, []);
 
   return (
-    <div className="my-container">
+    <div className="">
       <SectionTitle title="Top Colleges"></SectionTitle>
-      <div className="md:grid grid-cols-2 gap-8">
+      <div className="md:grid grid-cols-2 gap-8 my-container">
         {colleges.map((college) => (
           <div
             key={college.id}
@@ -32,8 +33,21 @@ const TopColleges = () => {
               <p>
                 Admission Date :<span> {college.admission_date} (Fall)</span>
               </p>
-              <div className="flex">
-                <p>Rating : {college.college_rating}</p>
+              <div>
+                <p>
+                  <span>Rating : </span>
+                  <Rating
+                    placeholderRating={college?.college_rating}
+                    readonly
+                    emptySymbol={<FaRegStar></FaRegStar>}
+                    placeholderSymbol={
+                      <FaStar className="text-warning"></FaStar>
+                    }
+                    fullSymbol={<FaStar></FaStar>}
+                  ></Rating>
+                  <span> {college?.college_rating}</span>
+                </p>
+
                 <p>
                   Number of Research : {college.research_count} Paper Published
                 </p>

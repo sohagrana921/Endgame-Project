@@ -1,18 +1,21 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-
+import { FaRegStar, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Rating from "react-rating";
 const MyCollege = () => {
   const { user } = useContext(AuthContext);
   const [selectedCollege, setSelectedCollege] = useState("");
   const [allColleges, setAllColleges] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/selectedColleges/${user?.email}`)
+    fetch(
+      `https://endgame-server-amber.vercel.app/selectedColleges/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setSelectedCollege(data));
   }, [user?.email]);
   useEffect(() => {
-    fetch(`http://localhost:5000/colleges`)
+    fetch(`https://endgame-server-amber.vercel.app/colleges`)
       .then((res) => res.json())
       .then((data) => setAllColleges(data));
   }, []);
@@ -37,7 +40,17 @@ const MyCollege = () => {
               <p>
                 Admission Date :<span> {myCollege?.admission_date} (Fall)</span>
               </p>
-              <p>Rating : {myCollege?.college_rating}</p>
+              <p>
+                <span>Rating : </span>
+                <Rating
+                  placeholderRating={myCollege?.college_rating}
+                  readonly
+                  emptySymbol={<FaRegStar></FaRegStar>}
+                  placeholderSymbol={<FaStar className="text-warning"></FaStar>}
+                  fullSymbol={<FaStar></FaStar>}
+                ></Rating>
+                <span> {myCollege?.college_rating}</span>
+              </p>
               <p>
                 Research Paper : {myCollege?.research_count} Paper Published
               </p>
