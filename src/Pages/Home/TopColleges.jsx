@@ -17,7 +17,7 @@ const TopColleges = () => {
         {colleges.map((college) => (
           <div
             key={college.id}
-            className="card card-compact  bg-base-100 shadow-xl"
+            className="card card-compact  bg-base-100 shadow-xl mt-8 md:mt-0"
           >
             <figure>
               <img

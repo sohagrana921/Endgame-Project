@@ -3,11 +3,22 @@ import { Link } from "react-router-dom";
 
 const Admission = () => {
   const [colleges, setColleges] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("http://localhost:5000/colleges")
       .then((res) => res.json())
-      .then((data) => setColleges(data));
+      .then((data) => {
+        setColleges(data);
+        setLoading(false);
+      });
   }, []);
+  if (loading) {
+    return (
+      <div className="flex justify-center my-28">
+        <progress className="progress w-1/2"></progress>
+      </div>
+    );
+  }
   return (
     <div className="my-container">
       <div className="overflow-x-auto my-10">

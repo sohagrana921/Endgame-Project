@@ -74,6 +74,12 @@ const Login = () => {
                     <FaEye></FaEye>
                   </p>
                 </div>
+                <Link
+                  to="/resetPassword"
+                  className="text-blue-600 my-2 font-semibold"
+                >
+                  Reset Password
+                </Link>
               </div>
               <div className="form-control">
                 <input

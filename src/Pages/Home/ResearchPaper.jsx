@@ -14,12 +14,15 @@ const ResearchPaper = () => {
       <SectionTitle title="Research Paper"></SectionTitle>
       <div className="md:grid grid-cols-3 gap-8">
         {papers.map((paper) => (
-          <div key={paper._id} className="card  bg-base-100 shadow-xl">
+          <div
+            key={paper._id}
+            className="card  bg-base-100 shadow-xl mt-8 md:mt-0"
+          >
             <div className="card-body">
               <h2 className="card-title">{paper.title}</h2>
               <p className="text-justify">{paper.description}</p>
               <div className="card-actions justify-end">
-                <Link to={paper.paper_link} className="btn btn-primary">
+                <Link to="https://www.google.com/" className="btn btn-primary">
                   Paper Link
                 </Link>
               </div>

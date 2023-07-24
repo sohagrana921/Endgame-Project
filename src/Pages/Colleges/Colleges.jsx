@@ -3,19 +3,29 @@ import { Link } from "react-router-dom";
 
 const Colleges = () => {
   const [colleges, setColleges] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("http://localhost:5000/colleges")
       .then((res) => res.json())
-      .then((data) => setColleges(data));
+      .then((data) => {
+        setColleges(data);
+        setLoading(false);
+      });
   }, []);
-
+  if (loading) {
+    return (
+      <div className="flex justify-center my-28">
+        <progress className="progress w-1/2"></progress>
+      </div>
+    );
+  }
   return (
     <div className="my-container">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="md:grid grid-cols-2 gap-4">
         {colleges.map((college) => (
           <div
             key={college.id}
-            className="card card-compact  bg-base-100 shadow-xl"
+            className="card card-compact  bg-base-100 shadow-xl mt-8 md:mt-0"
           >
             <figure>
               <img

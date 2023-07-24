@@ -31,6 +31,11 @@ const UserDetails = () => {
           <h1>Name : {userDetails?.name}</h1>
           <h1>Email : {userDetails?.email}</h1>
           {userDetails.subject ? <h1>Subject : {userDetails?.subject}</h1> : ""}
+          {userDetails.college_name ? (
+            <h1>College Name : {userDetails?.college_name}</h1>
+          ) : (
+            ""
+          )}
           {userDetails.phoneNumber ? (
             <h1>Phone : {userDetails?.phoneNumber}</h1>
           ) : (
@@ -39,6 +44,7 @@ const UserDetails = () => {
           {userDetails.address ? <h1>Address : {userDetails?.address}</h1> : ""}
           <Link
             // to={`/admissionForm/${college._id}`}
+            to={`/updateUser/${userDetails?._id}`}
             className="btn btn-success btn-sm mt-8 "
           >
             Update Info <FaEdit></FaEdit>

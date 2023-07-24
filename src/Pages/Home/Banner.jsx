@@ -25,7 +25,7 @@ const Banner = () => {
           <div className="max-w-md text-black">
             <div className="join">
               <input
-                className="input input-bordered join-item w-[400px]"
+                className="input input-bordered join-item md:w-[400px]"
                 placeholder="Search by college name"
               />
               <button className="btn join-item bg-orange-500 rounded">

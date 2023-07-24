@@ -33,7 +33,7 @@ const AddReview = () => {
       });
   };
   return (
-    <div>
+    <div className="my-container">
       <SectionTitle title="Add a Review"></SectionTitle>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid grid-cols-2 gap-4">

@@ -15,7 +15,7 @@ const Review = () => {
   return (
     <div className="my-container">
       <SectionTitle title="College Review"></SectionTitle>
-      <Carousel className="bg-green-300 p-8 rounded-lg">
+      <Carousel className="bg-green-300 p-8 rounded-lg mb-8">
         {reviews.map((testimonial, index) => (
           <Slide key={index}>
             <h3 className="text-xl font-bold">{testimonial.name}</h3>

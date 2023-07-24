@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div>
       <div className="bg-slate-950 bl py-6 px-12 md:px-20">
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-20 text-start">
+        <div className="md:grid grid-cols-2 gap-20 text-start">
           <div>
             <p className="text-orange-500 font-semibold py-6">COMPANY</p>
             <p className="text-justify text-white">
@@ -45,10 +45,10 @@ const Footer = () => {
                   {" "}
                   <FaMobile></FaMobile> +8801953392939
                 </p>
-                <p className="flex items-center text-white gap-2">
+                <small className="flex items-center text-white gasmall-2">
                   {" "}
                   <FaInbox></FaInbox> collegeadmisson.info@gmail.com
-                </p>
+                </small>
               </div>
             </div>
           </div>

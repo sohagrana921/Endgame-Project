@@ -31,7 +31,7 @@ const MyCollege = () => {
               alt=""
             />
           </figure>
-          <div className="card-body w-1/3">
+          <div className="card-body md:w-1/3">
             <h2 className="card-title">{myCollege?.college_name}</h2>
             <div>
               <p>

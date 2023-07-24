@@ -12,6 +12,8 @@ import MyCollege from "../Pages/MyCollege/MyCollege";
 import PrivateRoute from "./PrivateRoute";
 import AdmissionForm from "../Pages/Admission/AdmissionForm";
 import AddReview from "../Pages/AddReview/AddReview";
+import UpdateUser from "../Pages/UpdateUser/UpdateUser";
+import ResetPassword from "../Pages/ResetPassword/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/userDetails",
         element: <UserDetails></UserDetails>,
+      },
+      {
+        path: "/updateUser/:id",
+        element: <UpdateUser></UpdateUser>,
       },
       {
         path: "/addReview",
@@ -64,6 +70,10 @@ const router = createBrowserRouter([
       {
         path: "/myCollege",
         element: <MyCollege></MyCollege>,
+      },
+      {
+        path: "/resetPassword",
+        element: <ResetPassword></ResetPassword>,
       },
       {
         path: "/admissionForm/:id",

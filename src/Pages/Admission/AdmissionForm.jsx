@@ -51,6 +51,7 @@ const AdmissionForm = () => {
         }
       });
   };
+
   return (
     <div>
       <SectionTitle title="Admission Form"></SectionTitle>
